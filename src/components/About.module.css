@@ -1,0 +1,49 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: min(1240px, calc(100% - 2 * var(--gutter)));
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+.toggle {
+  display: flex;
+  gap: 12px;
+}
+
+.toggle :global(.pill) {
+  min-width: 100px;
+}
+
+/* captures are scaled to the full page width (up to 1440) so the colour bands run edge to edge */
+.main {
+  margin-top: 8px;
+}
+
+.slice {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.mobile,
+.mobileHero {
+  display: none !important;
+}
+
+@media (max-width: 809px) {
+  .nav {
+    padding-top: 40px;
+  }
+  .toggle :global(.pill) {
+    min-width: 72px;
+  }
+  .desktop {
+    display: none !important;
+  }
+  .mobile {
+    display: block !important;
+  }
+  .mobileHero {
+    display: grid !important;
+  }
+}

@@ -1,0 +1,29 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  align-items: center;
+  gap: 12px;
+  padding: 24px var(--gutter) 0;
+  font-family: var(--font-alt);
+}
+
+.hero img {
+  border-radius: 50%;
+}
+
+.hello {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--ink-2);
+  line-height: 1.2;
+}
+
+.lead {
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.lead strong {
+  font-weight: 700;
+}
