@@ -1,0 +1,532 @@
+/* ---------- Nav + hero ---------- */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 63px;
+  padding-top: 84px;
+}
+
+.hero {
+  width: min(1105px, calc(100% - 2 * var(--gutter)));
+  margin: 0 auto;
+}
+
+.heroMobile {
+  display: none;
+}
+
+.mobileNote {
+  display: none;
+}
+
+/* ---------- Shared project text ---------- */
+.eyebrow {
+  font-size: 16px;
+}
+
+.title {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-top: 8px;
+}
+
+.stats {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+  display: grid;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.desc {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 17px 0 16px;
+}
+
+/* ---------- the shop. ---------- */
+.shop {
+  margin-top: 29px;
+  background: var(--panel);
+  border-radius: 12px 12px 0 0;
+  padding: 73px 0 64px;
+}
+
+.shopInner {
+  width: min(993px, calc(100% - 2 * var(--gutter)));
+  margin-inline: auto;
+}
+
+.shopHead {
+  display: grid;
+  grid-template-columns: 404px 1fr;
+  align-items: end;
+  font-family: var(--font-sans);
+}
+
+.shopEyebrow {
+  font-size: 20px;
+}
+
+.shopTitle {
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+.shopDesc {
+  font-size: 20px;
+  max-width: 560px;
+  padding-bottom: 4px;
+}
+
+.shopVideo {
+  position: relative;
+  display: block;
+  margin-top: 29px;
+}
+
+.shopMeta {
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.shopMeta dl {
+  display: flex;
+  gap: 154px;
+  margin: 0;
+}
+
+.shopMeta dt {
+  font-size: 16px;
+}
+
+.shopMeta dd {
+  margin: 10px 0 0;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  max-width: 250px;
+}
+
+.btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Siemens / Prayan rows ---------- */
+.row {
+  width: min(1015px, calc(100% - 2 * var(--gutter)));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 491px 1fr;
+  gap: 33px;
+}
+
+.rowSiemens {
+  margin-top: 176px;
+}
+
+.rowPrayan {
+  margin-top: 90px;
+  grid-template-columns: 1fr 491px;
+}
+
+.rowPrayan .copy {
+  max-width: 491px;
+}
+
+.visual {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  align-self: start;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badge {
+  margin-top: 22px;
+  padding: 14px 18px;
+  border-radius: 23px;
+  background: #ffc943;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 167px 0 0;
+  display: grid;
+  gap: 11px;
+  font-family: var(--font-sans);
+  font-size: 16.3px;
+}
+
+/* ---------- Godrej + Ritual ---------- */
+.duo {
+  width: min(1000px, calc(100% - 2 * var(--gutter)));
+  margin: 89px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 83px;
+  align-items: start;
+}
+
+.duoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.duoOffset {
+  margin-top: 68px;
+}
+
+.duoItem .title {
+  margin-top: 8px;
+}
+
+.phoneCard {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.phoneScreen {
+  position: absolute;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ---------- Cream "experience" band ---------- */
+.cream {
+  position: relative;
+  margin-top: 200px;
+  padding: 67px 0 140px;
+  background: var(--cream);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* soft arch on top and bottom edges */
+.cream::before,
+.cream::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 170%;
+  height: 160px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #fff;
+  z-index: -1;
+}
+
+.cream::before {
+  top: -120px;
+}
+
+.cream::after {
+  bottom: -110px;
+}
+
+.creamStarTop {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-30%);
+  z-index: -1;
+}
+
+.creamStarLeft {
+  position: absolute;
+  left: -107px;
+  top: 34%;
+  z-index: -1;
+}
+
+.creamStarRight {
+  position: absolute;
+  right: 0;
+  top: 54%;
+  z-index: -1;
+}
+
+.shelf {
+  width: min(1004px, calc(100% - 2 * var(--gutter)));
+  margin: 0 auto;
+}
+
+.shelf + .shelf {
+  margin-top: 70px;
+}
+
+.shelfHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e9d99f;
+}
+
+.shelfHead h2 {
+  font-family: var(--font-sans);
+  font-size: 36px;
+  padding: 0 3px 0;
+  line-height: 1.2;
+}
+
+.shelfLogos {
+  width: 232px !important;
+}
+
+.polaroids {
+  list-style: none;
+  padding: 0;
+  margin: 36px 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.polaroids[data-count="3"] {
+  justify-content: flex-start;
+  gap: 75px;
+}
+
+.polaroids[data-count="4"] {
+  /* four cards run a little wider than the heading rule, as in the original */
+  margin-inline: -100px;
+}
+
+.polaroid {
+  flex: 0 0 auto;
+  width: 290px;
+  padding: 13px 18px 20px;
+  background: var(--panel);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.polaroidImg {
+  position: relative;
+  aspect-ratio: 253 / 195;
+}
+
+.polaroidOverlay {
+  position: absolute;
+  left: 12%;
+  top: 2%;
+  width: 65%;
+}
+
+.polaroid p {
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1199px) {
+  .nav {
+    gap: 32px;
+  }
+  .row,
+  .rowPrayan {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tags {
+    margin-top: 40px;
+  }
+  .duo {
+    column-gap: 40px;
+  }
+  .polaroids[data-count="4"] {
+    margin-inline: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 36px 40px;
+  }
+  .polaroids[data-count="3"] {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 36px 40px;
+  }
+  .polaroid {
+    width: 260px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 809px) {
+  .nav {
+    gap: 12px;
+    padding-top: 40px;
+  }
+  .heroDesktop {
+    display: none !important;
+  }
+  .heroMobile {
+    display: block !important;
+  }
+  .hero {
+    margin-top: 32px;
+  }
+
+  .mobileNote {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 40px var(--gutter) 0;
+    padding: 14px 14px 14px 16px;
+    border-radius: 12px;
+    background: var(--panel);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .mobileNoteAvatar {
+    flex: 0 0 64px;
+    width: 64px !important;
+    border-radius: 50%;
+    transform: rotate(7deg);
+  }
+
+  .shop {
+    margin-top: 40px;
+    padding: 32px 0 36px;
+  }
+  .shopHead {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .shopEyebrow {
+    font-size: 13px;
+  }
+  .shopTitle {
+    font-size: 30px;
+  }
+  .shopDesc {
+    font-size: 15px;
+  }
+  .shopVideo {
+    margin-top: 20px;
+  }
+  .shopMeta {
+    flex-direction: column;
+    margin-top: 24px;
+  }
+  .shopMeta dl {
+    gap: 32px;
+  }
+  .shopMeta dt {
+    font-size: 13px;
+  }
+  .shopMeta dd {
+    font-size: 15px;
+    margin-top: 6px;
+  }
+
+  .row,
+  .rowPrayan {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .rowSiemens {
+    margin-top: 56px;
+  }
+  .rowPrayan {
+    margin-top: 56px;
+  }
+  .rowPrayan .visual {
+    order: -1;
+  }
+  .eyebrow {
+    font-size: 13px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .stats {
+    margin-top: 14px;
+    font-size: 14px;
+  }
+  .desc {
+    font-size: 15px;
+    margin: 12px 0 16px;
+  }
+  .badge {
+    margin-top: 12px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+  .tags {
+    margin-top: 14px;
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .duo {
+    grid-template-columns: 1fr;
+    row-gap: 56px;
+    margin-top: 56px;
+  }
+  .duoOffset {
+    margin-top: 0;
+  }
+  .phoneCard {
+    margin-bottom: 20px;
+  }
+
+  .cream {
+    margin-top: 80px;
+    padding: 56px 0 100px;
+  }
+  .cream::before,
+  .cream::after {
+    height: 80px;
+  }
+  .cream::before {
+    top: -60px;
+  }
+  .cream::after {
+    bottom: -56px;
+  }
+  .shelf + .shelf {
+    margin-top: 48px;
+  }
+  .shelfHead h2 {
+    font-size: 22px;
+  }
+  .shelfLogos {
+    width: 120px !important;
+  }
+  .polaroids,
+  .polaroids[data-count="3"],
+  .polaroids[data-count="4"] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 14px;
+    margin: 24px 0 0;
+  }
+  .polaroid {
+    width: auto;
+    padding: 8px 8px 12px;
+  }
+  .polaroid p {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+}

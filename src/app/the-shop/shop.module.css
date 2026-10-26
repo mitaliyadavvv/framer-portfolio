@@ -1,0 +1,274 @@
+/* Instagram brand photos */
+.brands {
+  list-style: none;
+  padding: 0;
+  margin-top: 112px;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 227fr 177fr 278fr 247fr;
+  column-gap: 4.6%;
+  align-items: start;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.brands span {
+  display: block;
+  margin-bottom: 11px;
+}
+
+/* Four problem statements */
+.problems {
+  list-style: none;
+  padding: 0;
+  margin-top: 95px;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 52px;
+  font-family: var(--font-sans);
+}
+
+.problems h3 {
+  font-size: 22.5px;
+  font-weight: 500;
+  line-height: 1.33;
+  margin: 0;
+}
+
+.problems p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.time h2 {
+  font-size: 40px;
+}
+
+.soft p {
+  color: #6b6b6b;
+}
+
+.note {
+  font-size: 14px !important;
+}
+
+/* Collage: positions follow the original 1440px artboard */
+.collage {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 48px auto 0;
+  height: 0;
+  padding-bottom: 50.7%;
+}
+
+.collage > div {
+  position: absolute;
+}
+
+.c1 {
+  left: 0.3%;
+  top: 0;
+  width: 19.3%;
+}
+
+.cText {
+  left: 23%;
+  top: 9.4%;
+  width: 35.4%;
+  display: grid;
+  gap: 36px;
+  font-family: var(--font-sans);
+  font-size: 17.5px;
+  line-height: 1.2;
+  color: #6b6b6b;
+}
+
+.c2 {
+  left: 62%;
+  top: 9.4%;
+  width: 28.5%;
+}
+
+.c3 {
+  left: 24.7%;
+  top: 42.5%;
+  width: 28.3%;
+}
+
+.c4 {
+  /* portrait image turned on its side */
+  left: 60.8%;
+  top: 39.5%;
+  width: 19%;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.c5 {
+  left: -7.3%;
+  top: 54.4%;
+  width: 29.6%;
+  box-shadow: 0 0 0 1px #e8e8e8;
+}
+
+/* Stack row */
+.stack {
+  list-style: none;
+  padding: 0;
+  margin-top: 150px;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 52px;
+  font-family: var(--font-sans);
+}
+
+.stack li {
+  position: relative;
+}
+
+.stack h3 {
+  font-size: 22.5px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.stack p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.stackIcon {
+  position: absolute;
+  top: -78px;
+  left: 0;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  display: block;
+}
+
+.stageVideo {
+  margin: 0 auto;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 41px;
+  margin-top: 80px;
+  font-family: var(--font-sans);
+}
+
+.pair h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.pair p {
+  margin-top: 19px;
+  font-size: 17.5px;
+  line-height: 1.2;
+  min-height: 63px;
+}
+
+.pairPanel {
+  position: relative;
+  margin-top: 52px;
+  background: var(--panel);
+  padding: 17.9% 6% 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+@media (max-width: 1199px) {
+  .problems,
+  .stack {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 120px;
+  }
+  .problems {
+    row-gap: 40px;
+  }
+  .collage {
+    height: auto;
+    padding: 0;
+    width: calc(100% - 2 * var(--gutter));
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .collage > div {
+    position: static;
+    width: auto;
+    transform: none;
+  }
+  .cText {
+    grid-column: 1 / -1;
+    order: -1;
+    gap: 16px;
+    font-size: 15px;
+  }
+  .c4 {
+    display: none;
+  }
+}
+
+@media (max-width: 809px) {
+  .brands {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 14px;
+    margin-top: 40px;
+    font-size: 13px;
+  }
+  .brands li {
+    margin-top: 0 !important;
+  }
+  .problems,
+  .stack {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .stack {
+    margin-top: 48px;
+    gap: 28px;
+  }
+  .problems h3,
+  .stack h3 {
+    font-size: 18px;
+  }
+  .problems p,
+  .stack p {
+    font-size: 14px;
+  }
+  .stackIcon {
+    position: static;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  .pair {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+  .pair h3 {
+    font-size: 20px;
+  }
+  .pair p {
+    font-size: 15px;
+    min-height: 0;
+    margin-top: 10px;
+  }
+  .pairPanel {
+    margin-top: 20px;
+  }
+}

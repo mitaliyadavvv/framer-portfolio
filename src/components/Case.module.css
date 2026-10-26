@@ -1,0 +1,406 @@
+/* ---------- Nav ---------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 80px;
+}
+
+.navBottom {
+  padding-top: 0;
+  margin-top: 120px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-top: 59px;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: 60px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  line-height: 1.2;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 33px;
+}
+
+.meta {
+  display: flex;
+  gap: 62px;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 22.5px;
+}
+
+.meta dt {
+  color: var(--muted);
+}
+
+.meta dd {
+  margin: 4px 0 0;
+}
+
+.logo {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.logo > img {
+  width: 76% !important;
+}
+
+.banner {
+  position: relative;
+  height: var(--bh, 334px);
+  margin-top: 59px;
+  background: #eee;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  display: grid;
+  grid-template-columns: 438px 1fr;
+  align-items: start;
+  margin-top: 112px;
+}
+
+.sectionSmall {
+  margin-top: 64px;
+}
+
+.head {
+  padding-right: 32px;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 22.5px;
+  line-height: 1.2;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.rowTitle {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.body {
+  font-family: var(--font-sans);
+  font-size: 17.5px;
+  line-height: 1.2;
+  display: grid;
+  gap: 21px;
+  padding-top: 8px;
+}
+
+.body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.p {
+  font-family: var(--font-sans);
+  font-size: 17.5px;
+  line-height: 1.2;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin-top: 96px;
+  margin-bottom: 0;
+}
+
+.space {
+  height: var(--h);
+}
+
+/* ---------- TL;DR ---------- */
+.tldr {
+  margin-top: 69px;
+}
+
+.tldr dl {
+  margin: 21px 0 0;
+}
+
+.tldrRow {
+  display: grid;
+  grid-template-columns: 438px 1fr;
+  padding: 14px 0 26px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-sans);
+}
+
+.tldrRow + .tldrRow {
+  padding-top: 26px;
+}
+
+.tldrRow dt {
+  font-size: 24px;
+  color: var(--muted);
+}
+
+.tldrRow dd {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.tldrRow dd a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Figures / panels ---------- */
+.figure {
+  margin-top: 48px;
+  margin-bottom: 0;
+}
+
+.panel {
+  position: relative;
+  padding: var(--pad, 48px);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tone_grey {
+  background: var(--panel);
+}
+
+.tone_peach {
+  background: var(--peach-soft);
+}
+
+.tone_none {
+  padding: 0;
+}
+
+.caption {
+  margin-top: 14px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 17.5px;
+  color: var(--muted);
+}
+
+/* ---------- Phone frame ---------- */
+.phone {
+  position: relative;
+  max-width: 100%;
+  aspect-ratio: 314 / 586;
+}
+
+.phoneScreen {
+  position: absolute;
+  left: 13.4%;
+  top: 6.1%;
+  width: 72.9%;
+  height: 87.7%;
+  border-radius: 9% / 4.5%;
+  overflow: hidden;
+  background: #000;
+}
+
+.phoneFrame {
+  position: absolute !important;
+  inset: 0;
+  height: 100% !important;
+  pointer-events: none;
+}
+
+/* ---------- Card row ---------- */
+.cardRow {
+  list-style: none;
+  padding: 0;
+  margin-top: 48px;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  gap: 52px;
+  font-family: var(--font-sans);
+}
+
+.cardRow h3 {
+  font-size: 22.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.cardRow p {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+/* ---------- Quote ---------- */
+.quoteText {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.quoteBy {
+  margin-top: 36px;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  color: var(--muted);
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1199px) {
+  .section,
+  .tldrRow {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+  .cardRow {
+    grid-template-columns: repeat(min(var(--cols), 2), 1fr);
+    gap: 32px 40px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 809px) {
+  .nav {
+    padding-top: 40px;
+  }
+  .navBottom {
+    margin-top: 64px;
+    padding-top: 0;
+  }
+  .hero {
+    padding-top: 36px;
+  }
+  .title {
+    font-size: 34px;
+  }
+  .subtitle {
+    font-size: 20px;
+    margin-top: 4px;
+  }
+  .metaRow {
+    margin-top: 24px;
+    align-items: flex-start;
+  }
+  .meta {
+    gap: 22px;
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+  .logo {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+  }
+  .banner {
+    height: calc(var(--bh, 334px) * 0.42);
+    min-height: 140px;
+    margin-top: 32px;
+  }
+  .section,
+  .tldrRow {
+    grid-template-columns: 1fr;
+  }
+  .section {
+    margin-top: 64px;
+    gap: 12px;
+  }
+  .sectionSmall {
+    margin-top: 40px;
+  }
+  .head {
+    padding-right: 0;
+  }
+  .eyebrow {
+    font-size: 15px;
+  }
+  .sectionTitle {
+    font-size: 28px;
+  }
+  .rowTitle {
+    font-size: 20px;
+  }
+  .body,
+  .p {
+    font-size: 15px;
+    line-height: 1.35;
+    gap: 14px;
+    padding-top: 0;
+  }
+  .divider {
+    margin-top: 56px;
+  }
+  .tldr {
+    margin-top: 48px;
+  }
+  .tldrRow {
+    gap: 6px;
+    padding: 16px 0;
+  }
+  .tldrRow + .tldrRow {
+    padding-top: 16px;
+  }
+  .tldrRow dt {
+    font-size: 15px;
+  }
+  .tldrRow dd {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  .figure {
+    margin-top: 28px;
+  }
+  .panel {
+    padding: calc(var(--pad, 48px) * 0.35);
+  }
+  .caption {
+    font-size: 13px;
+  }
+  .cardRow {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .cardRow h3 {
+    font-size: 18px;
+  }
+  .cardRow p {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  .quoteText,
+  .quoteBy {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  .quoteBy {
+    margin-top: 16px;
+  }
+}
