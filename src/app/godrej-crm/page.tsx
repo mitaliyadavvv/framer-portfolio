@@ -64,7 +64,7 @@ function Solution({
         ))}
       </div>
       <div className={styles.solPhone}>
-        <Vid file={video} label={label} />
+        <Vid file={video} label={label} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "45% 50%" }} />
       </div>
       {stat && (
         <div className={styles.solStat}>
@@ -302,6 +302,7 @@ export default function Godrej() {
             video="WFV7dGM4BVpf7R0rV30ElCtA.mp4"
             label="Scanning product QR codes to build an order"
             stat="Faster, error-free order entry"
+            statColor="#62b238"
             statPoints={["No longer relying on desktop Excel sheets."]}
           />
           <Solution
@@ -313,6 +314,7 @@ export default function Godrej() {
             video="CuzHQWGaC66JRhv6WyF0WKrADgk.mp4"
             label="Searching products by name"
             stat="Same Process but Faster"
+            statColor="#62b238"
             statPoints={["No learning curve or anything new for the sales rep to learn or keep up with."]}
           />
         </div>

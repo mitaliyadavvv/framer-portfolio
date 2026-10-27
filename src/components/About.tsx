@@ -9,7 +9,7 @@ import styles from "./About.module.css";
  * artboard at desktop (1200 wide) and phone (390 wide) layouts; the copy is repeated
  * as accessible text for screen readers and search.
  */
-export type Slice = { desktop?: string; mobile?: string; alt: string };
+export type Slice = { desktop?: string; mobile?: string; alt: string } | { node: ReactNode; desktopOnly?: boolean };
 
 export default function About({
   mode,
@@ -40,12 +40,18 @@ export default function About({
       <main className={styles.main}>
         <div className="sr-only">{text}</div>
         {mobileHero && <div className={styles.mobileHero}>{mobileHero}</div>}
-        {slices.map((s, i) => (
-          <div key={i} className={styles.slice} aria-hidden>
-            {s.desktop && <Img file={s.desktop} alt="" className={styles.desktop} sizes="(max-width: 809px) 1px, 1440px" priority={i === 0} />}
-            {s.mobile && <Img file={s.mobile} alt="" className={styles.mobile} sizes="(max-width: 809px) 100vw, 1px" priority={i === 0} />}
-          </div>
-        ))}
+        {slices.map((s, i) =>
+          "node" in s ? (
+            <div key={i} className={s.desktopOnly ? styles.desktopOnly : undefined}>
+              {s.node}
+            </div>
+          ) : (
+            <div key={i} className={styles.slice} aria-hidden>
+              {s.desktop && <Img file={s.desktop} alt="" className={styles.desktop} sizes="(max-width: 809px) 1px, 1440px" priority={i === 0} />}
+              {s.mobile && <Img file={s.mobile} alt="" className={styles.mobile} sizes="(max-width: 809px) 100vw, 1px" priority={i === 0} />}
+            </div>
+          ),
+        )}
       </main>
       <Footer />
     </>

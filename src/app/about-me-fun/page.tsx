@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import About from "@/components/About";
+import { ReasonThree, TopFilms } from "@/components/AboutExtras";
 
 export const metadata: Metadata = { title: "About me (the fun version)" };
 
@@ -8,9 +9,17 @@ export default function AboutFun() {
     <About
       mode="fun"
       slices={[
-        { desktop: "cap/ab-d1.png", mobile: "cap/ab-m1.png", alt: "" },
-        { desktop: "cap/ab-d2.png", mobile: "cap/ab-m2.png", alt: "" },
-        { desktop: "cap/ab-d3.png", alt: "" },
+        { desktop: "cap/ab-d1-v2.png", mobile: "cap/ab-m1.png", alt: "" },
+        { node: <TopFilms />, desktopOnly: true },
+        { desktop: "cap/ab-d2.png", mobile: "cap/ab-m2-v2.png", alt: "" },
+        {
+          node: (
+            <ReasonThree title="Main hobby: Acquiring new hobbies" star>
+              <p>Being the hobby hoarder I am, I’m always in for any sport or activity</p>
+              <p>( as long as i can afford it lol )</p>
+            </ReasonThree>
+          ),
+        },
       ]}
       text={
         <>

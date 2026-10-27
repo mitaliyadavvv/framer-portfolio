@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { CaseNav, Divider, Figure, Img, Section, TLDR, Vid } from "@/components/Case";
 import Footer from "@/components/Footer";
+import PrayanHero from "./PrayanHero";
+import { RecognitionStars } from "./Stars";
 import styles from "./prayan.module.css";
 
 export const metadata: Metadata = { title: "Prayan : Post Loss Service" };
@@ -30,10 +32,13 @@ const how = [
   ["Family Visibility", "Selected family members are informed of Prayan’s role, access points, and next steps without overwhelming them with details."],
 ];
 
-const audiences = [
-  ["For Who Want to Plan Ahead", "For individuals who want to look out for their family, even in their absence.", "3loflzWnnVeAfS4WC44DouteHk.png"],
-  ["For Families Facing a Loss", "For those who have lost a loved one and don’t know what to do next.", "SZhjRJM3CFd5F2QShulzM2moU0.png"],
-  ["For NRIs & Families Living Away", "For families separated by distance across cities, states, or countries.", "LGlpOGrTZG4o2vgyFFkmiHSr00.png"],
+// heads drawn over the line art: [x, y, size, colour] in px of the 303×202 artwork
+type Dot = [number, number, number, string];
+const ORANGE = "#ff9c56";
+const audiences: [string, string, string, Dot[], boolean?][] = [
+  ["For Who Want to Plan Ahead", "For individuals who want to look out for their family, even in their absence.", "3loflzWnnVeAfS4WC44DouteHk.png", [[63, 13, 58, ORANGE], [160, 27, 54, ORANGE], [126, 96, 37, ORANGE]]],
+  ["For Families Facing a Loss", "For those who have lost a loved one and don’t know what to do next.", "SZhjRJM3CFd5F2QShulzM2moU0.png", [[114, 20, 54, "#fdbc8e"]], true],
+  ["For NRIs & Families Living Away", "For families separated by distance across cities, states, or countries.", "LGlpOGrTZG4o2vgyFFkmiHSr00.png", [[122, 62, 41, ORANGE]]],
 ];
 
 const model = [
@@ -98,14 +103,7 @@ export default function Prayan() {
             </div>
           </dl>
         </header>
-        <div className={styles.heroArt}>
-          <Img
-            file="cap/pr-hero.png"
-            alt="For when your family needs help the most. Support beyond sympathy. The Prayan app on a phone held in hand."
-            priority
-            sizes="(max-width: 809px) 100vw, 1180px"
-          />
-        </div>
+        <PrayanHero />
 
         <TLDR
           rows={[
@@ -126,7 +124,10 @@ export default function Prayan() {
         <Divider />
 
         <section className={`container ${styles.recog}`}>
-          <h2>Recognition</h2>
+          <h2>
+            <RecognitionStars className={styles.recogStars} />
+            <span>Recognition</span>
+          </h2>
           <div>
             <h3>Best Student Innovation Award @ UX India 2026</h3>
             <p>
@@ -196,7 +197,10 @@ export default function Prayan() {
         <ul className={`container ${styles.feelings}`}>
           {feelings.map(([t, b, img]) => (
             <li key={t}>
-              <Img file={img} alt="" sizes="200px" />
+              <div className={styles.feelingArt}>
+                <span className={styles.feelingDot} aria-hidden />
+                <Img file={img} alt="" sizes="200px" className={styles.flip} />
+              </div>
               <h3>{t}</h3>
               <p>{b}</p>
             </li>
@@ -284,11 +288,26 @@ export default function Prayan() {
           <p>It is a hybrid service that focuses majorly on pre-planning for families, making things easier for the family as well as Prayan.</p>
         </Section>
         <ul className={`container ${styles.audience}`}>
-          {audiences.map(([t, b, img]) => (
+          {audiences.map(([t, b, img, dots, tear]) => (
             <li key={t}>
               <h3>{t}</h3>
               <p>{b}</p>
-              <Img file={img} alt="" sizes="303px" />
+              <div className={styles.audienceArt}>
+                <Img file={img} alt="" sizes="303px" />
+                {dots.map(([x, y, d, c]) => (
+                  <span
+                    key={`${x}-${y}`}
+                    className={styles.audienceDot}
+                    style={{ left: `${(x / 303) * 100}%`, top: `${(y / 202) * 100}%`, width: `${(d / 303) * 100}%`, background: c }}
+                    aria-hidden
+                  />
+                ))}
+                {tear && (
+                  <svg className={styles.tear} viewBox="-1 -1 25 23" fill="none" aria-hidden>
+                    <path d="M15.9375 19.0626C12.1875 16.875 4.75 15.8126 0 20.3126M19.0625 0C16.6667 3.4375 14.375 10 19.0625 10C20.6265 10 25.0625 9 19.0625 0Z" stroke="black" strokeWidth="1.25" strokeLinecap="round" />
+                  </svg>
+                )}
+              </div>
             </li>
           ))}
         </ul>

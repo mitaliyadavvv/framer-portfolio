@@ -257,12 +257,15 @@ export default function Siemens() {
             create, and explore a library of over 4,000 icons.
           </p>
         </Section>
-        <div className={styles.glyphName}>
+        <div className={`container ${styles.glyphName}`}>
           <Img
-            file="cap/si-glyph-name.png"
-            alt="What's going on in Mitali's head — why the name Glyph: a glyph is a symbolic figure, mark, or character that conveys information non-verbally, like a hieroglyph."
-            sizes="(max-width: 809px) 100vw, 1265px"
+            file="cap/si-glyph-box-v2.png"
+            alt="Why the name Glyph: a glyph is a symbolic figure, mark, or character that conveys information non-verbally, like a hieroglyph."
+            sizes="(max-width: 809px) 100vw, 1078px"
           />
+          {/* overlays: sit outside the box and never affect its alignment */}
+          <Img file="k9TnoNdLUWs0oOnC2xqPCcWNTM.png" alt="" className={styles.glyphSticker} sizes="192px" />
+          <p className={styles.glyphLabel}>Whats going in Mitali’s head</p>
         </div>
 
         <Section title="Feature List">
@@ -274,7 +277,7 @@ export default function Siemens() {
         <ul className={`container ${styles.features}`}>
           {features.map(([t, b], i) => (
             <li key={t}>
-              <Img file={`cap/si-feat-icon-${i}.png`} alt="" className={styles.featIcon} sizes="60px" />
+              <Img file={`cap/si-feat-icon-${i}-c.png`} alt="" className={styles.featIcon} sizes="60px" />
               <h3>{t}</h3>
               <p>{b}</p>
             </li>
@@ -410,7 +413,7 @@ export default function Siemens() {
         <ul className={`container ${styles.learnings}`}>
           {learnings.map(([t, b], i) => (
             <li key={t}>
-              <Img file={`cap/si-learn-icon-${i}.png`} alt="" className={styles.learnIcon} sizes="80px" />
+              <Img file={`cap/si-learn-icon-${i}-c.png`} alt="" className={styles.learnIcon} sizes="80px" />
               <h3>{t}</h3>
               <p>{b}</p>
             </li>

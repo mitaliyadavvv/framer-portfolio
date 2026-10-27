@@ -47,3 +47,197 @@
     display: grid !important;
   }
 }
+
+.desktopOnly {
+  display: block;
+}
+
+/* ---------- Live sections: sized in units of the 1200px artboard the captures use ---------- */
+.reason,
+.films {
+  --u: calc(min(1440px, 100vw) / 1200);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.reason {
+  padding: calc(20 * var(--u)) 0 calc(10 * var(--u));
+  overflow: hidden;
+}
+
+.reasonText {
+  position: relative;
+  padding: 0 calc(62 * var(--u));
+  font-family: var(--font-alt);
+}
+
+.reasonLabel {
+  font-size: calc(20 * var(--u));
+  font-weight: 300;
+  color: #858585;
+}
+
+.reasonText h2 {
+  margin-top: calc(10 * var(--u));
+  font-size: calc(30 * var(--u));
+  line-height: 1.2;
+}
+
+.reasonSub {
+  margin-top: calc(14 * var(--u));
+  font-size: calc(20 * var(--u));
+  font-weight: 300;
+  line-height: 1.2;
+  color: #858585;
+}
+
+.reasonStar {
+  position: absolute;
+  left: calc(950 * var(--u));
+  top: calc(30 * var(--u));
+  width: calc(139 * var(--u));
+  height: auto;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+
+/* ring of photos */
+.ringStage {
+  --r: calc(700 * var(--u));
+  --w: calc(233 * var(--u));
+  --h: calc(301 * var(--u));
+  position: relative;
+  height: calc(var(--h) + 12 * var(--u));
+  margin-top: calc(48 * var(--u));
+  perspective: calc(1100 * var(--u));
+  perspective-origin: 50% 40%;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: spin 46s linear infinite;
+}
+
+.ringStage:hover .ring {
+  animation-play-state: paused;
+}
+
+.ringCard {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--w);
+  height: var(--h);
+  margin-left: calc(var(--w) / -2);
+  transform-style: preserve-3d;
+  transform: rotateY(var(--a)) translateZ(var(--r));
+}
+
+.ringFace {
+  position: absolute;
+  inset: 0;
+  border-radius: calc(16 * var(--u));
+  overflow: hidden;
+  backface-visibility: hidden;
+  background: #eee;
+}
+
+.ringBack {
+  transform: rotateY(180deg);
+}
+
+@keyframes spin {
+  from {
+    transform: translateZ(calc(var(--r) * -1)) rotateY(0deg);
+  }
+  to {
+    transform: translateZ(calc(var(--r) * -1)) rotateY(-360deg);
+  }
+}
+
+/* top four films */
+.films {
+  padding: calc(14 * var(--u)) 0 calc(40 * var(--u));
+}
+
+.films ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+.films li {
+  position: relative;
+  width: calc(262 * var(--u));
+  aspect-ratio: 275 / 278;
+}
+
+.poster {
+  position: absolute;
+}
+
+.frame {
+  position: relative;
+  pointer-events: none;
+}
+
+.films p {
+  margin-top: calc(18 * var(--u));
+  text-align: center;
+  font-family: var(--font-alt);
+  font-size: calc(20 * var(--u));
+  line-height: 1.8;
+  color: #858585;
+}
+
+@media (max-width: 809px) {
+  .desktopOnly {
+    display: none;
+  }
+  .reason {
+    --u: calc(100vw / 390);
+    padding: calc(14 * var(--u)) 0 calc(40 * var(--u));
+  }
+  .reasonText {
+    padding: 0 calc(19 * var(--u));
+  }
+  .reasonLabel,
+  .reasonSub {
+    font-size: calc(12 * var(--u));
+  }
+  .reasonText h2 {
+    font-size: calc(17 * var(--u));
+    margin-top: calc(4 * var(--u));
+  }
+  .reasonSub {
+    margin-top: calc(6 * var(--u));
+  }
+  .reasonStar {
+    left: auto;
+    right: calc(14 * var(--u));
+    top: calc(14 * var(--u));
+    width: calc(44 * var(--u));
+  }
+  .ringStage {
+    --r: calc(210 * var(--u));
+    --w: calc(96 * var(--u));
+    --h: calc(124 * var(--u));
+    margin-top: calc(24 * var(--u));
+    perspective: calc(420 * var(--u));
+  }
+  .ringFace {
+    border-radius: calc(10 * var(--u));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring {
+    animation: none;
+    transform: translateZ(calc(var(--r) * -1));
+  }
+}

@@ -153,13 +153,65 @@
   align-items: flex-start;
 }
 
+/* "UX India 2026 Winner" badge, as in Framer: pill with a light rim and two diagonal
+   stripes, plus a shine that sweeps across every couple of seconds */
 .badge {
+  position: relative;
+  overflow: hidden;
   margin-top: 22px;
   padding: 14px 18px;
   border-radius: 23px;
   background: #ffc943;
+  box-shadow: inset 0 0 0 3px #fbd987;
   font-family: var(--font-sans);
   font-size: 14px;
+  isolation: isolate;
+}
+
+.badgeText {
+  position: relative;
+  z-index: 3;
+}
+
+.badgeStripes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    -60deg,
+    transparent 16%,
+    #fbd987 16%,
+    #fbd987 23%,
+    transparent 23%,
+    transparent 29%,
+    #fbd987 29%,
+    #fbd987 38%,
+    transparent 38%
+  );
+}
+
+.badgeShine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 85%;
+  background: linear-gradient(45deg, transparent 0%, #fff 50%, transparent 100%);
+  opacity: 0.6;
+  transform: translateX(-130%) skewX(-45deg);
+  animation: badgeShine 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes badgeShine {
+  0% {
+    transform: translateX(-130%) skewX(-45deg);
+  }
+  45%,
+  100% {
+    transform: translateX(260%) skewX(-45deg);
+  }
 }
 
 .tags {
@@ -311,6 +363,8 @@
 }
 
 .polaroid {
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   flex: 0 0 auto;
   width: 290px;
   padding: 13px 18px 20px;
@@ -345,7 +399,7 @@
   }
   .row,
   .rowPrayan {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
   .tags {
     margin-top: 40px;
@@ -528,5 +582,118 @@
   .polaroid p {
     font-size: 12px;
     margin-top: 8px;
+  }
+}
+
+/* Siemens / Prayan rows: the button sits on the image's bottom edge */
+.row .copy {
+  align-self: stretch;
+}
+
+.row .copy > :global(.pill) {
+  margin-top: auto;
+}
+
+@media (max-width: 809px) {
+  .row .copy > :global(.pill) {
+    margin-top: 0;
+  }
+}
+
+/* both project images share the Siemens proportions and stretch to the row,
+   so their bottom edge always meets the "Explore the Project" button */
+.row .visual {
+  position: relative;
+  align-self: stretch;
+  aspect-ratio: 491 / 539;
+}
+
+.row .visual img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Godrej cover: exactly as in Framer (456×501 artboard) — a black 214×476 clip at (121, 13)
+   with the 227×503 video (object-fit: cover) offset (1, -14) inside it */
+.gcClip {
+  position: absolute;
+  left: 26.54%;
+  top: 2.59%;
+  width: 46.93%;
+  height: 95.01%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000;
+}
+
+.gcVideo {
+  position: absolute;
+  left: 0.47%;
+  top: -2.94%;
+  width: 106.07% !important;
+  height: 105.67% !important;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+/* polaroids straighten a little, lift and grow when hovered */
+@media (hover: hover) {
+  .polaroid:hover {
+    position: relative;
+    z-index: 2;
+    transform: rotate(calc(var(--rot, 0deg) * 0.3)) translateY(-8px) scale(1.06);
+    box-shadow: 0 18px 36px rgba(60, 40, 0, 0.16);
+  }
+}
+
+/* Godrej cover: Framer's box height and centre, but shaped to the handset itself so the frame is even */
+.gcClip {
+  left: 50% !important;
+  width: auto !important;
+  aspect-ratio: 783 / 1699;
+  transform: translateX(-50%);
+  border-radius: 14% / 6.5%;
+  background: transparent;
+}
+
+/* measured from the recording: handset spans x 11.35–86.63%, y 2.57–97.4% */
+.gcVideo {
+  left: -15.08% !important;
+  top: -2.71% !important;
+  width: 132.84% !important;
+  height: 105.5% !important;
+  object-fit: fill !important;
+  border-radius: 0 !important;
+}
+
+/* shop meta: facts on the left, buttons on the right, top-aligned with the "Built in" row */
+@media (max-width: 1199px) and (min-width: 560px) {
+  .shop {
+    padding-bottom: 48px;
+  }
+  .shopMeta {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .shopMeta dl {
+    gap: 32px;
+  }
+  .btns {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  .btns :global(.pill) {
+    min-width: 0;
+  }
+}
+
+/* narrower: buttons stack on the right so the facts keep their room */
+@media (max-width: 999px) and (min-width: 560px) {
+  .btns {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

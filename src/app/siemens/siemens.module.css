@@ -197,10 +197,47 @@
   font-size: 30px;
 }
 
-/* captured at the original 1440 artboard: the sticker hangs out to the left of the content column */
+/* the sticker and label are overlays pinned to the box's top-left corner (offsets from Framer);
+   they never take up layout space */
 .glyphName {
-  width: min(1265px, 100%);
-  margin: 40px 0 0 max(0px, calc(50% - 720px));
+  --sw: clamp(92px, 13.3vw, 192px);
+  --sl: max(-202px, calc((min(1075px, 100vw - 80px) - 100vw) / 2 - 20px));
+  position: relative;
+  margin-top: 150px;
+}
+
+.glyphSticker {
+  position: absolute !important;
+  left: var(--sl);
+  top: -108px; /* as in Framer; keeps the sticker above the box heading at narrower widths */
+  width: var(--sw) !important;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.glyphLabel {
+  position: absolute;
+  left: calc(var(--sl) + var(--sw) * 0.73 + max(0px, (192px - var(--sw)) * 0.2));
+  top: -48px;
+  font-family: var(--font-alt);
+  font-size: 20px;
+  font-weight: 700;
+  color: #de57ba;
+  white-space: nowrap;
+}
+
+@media (max-width: 809px) {
+  .glyphName {
+    --sl: -10px;
+    margin-top: 110px;
+  }
+  .glyphSticker {
+    top: -96px;
+  }
+  .glyphLabel {
+    top: -34px;
+    font-size: 15px;
+  }
 }
 
 .features {
@@ -294,6 +331,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .results h2 {

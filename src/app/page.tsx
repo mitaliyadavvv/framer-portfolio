@@ -1,6 +1,9 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Img, Vid } from "@/components/Media";
 import Footer from "@/components/Footer";
+import SoundVideo from "@/components/SoundVideo";
+import TiltHero from "@/components/TiltHero";
 import { Star } from "@/components/Decor";
 import styles from "./home.module.css";
 
@@ -61,12 +64,14 @@ export default function Home() {
       <main>
         <h1 className="sr-only">Mitali Yadav — UX Designer, Product Strategist</h1>
         <div className={styles.hero}>
-          <Img
+          <TiltHero>
+            <Img
             file="webCwZss89seW7jkdjuZxGg7IaY.png"
             alt="ID card collage: Mitali Yadav, Final Year Student. Roles I've had: UX Designer, Product Strategist, UI Designer, Funniest Person on the Team."
             className={styles.heroDesktop}
             priority
           />
+          </TiltHero>
           <Img file="Lm6gCMy35RsyFUI16v2LpcvcXw.png" alt="" className={styles.heroMobile} sizes="100vw" />
         </div>
 
@@ -79,7 +84,7 @@ export default function Home() {
         </aside>
 
         {/* Project 1 — the shop. */}
-        <section className={styles.shop}>
+        <section className={styles.shop} data-shop-section>
           <div className={styles.shopInner}>
             <Link href="/the-shop" className={styles.shopHead}>
               <div>
@@ -92,7 +97,7 @@ export default function Home() {
               </p>
             </Link>
             <Link href="/the-shop" className={styles.shopVideo} aria-label="the shop. demo">
-              <Vid file="P8BuyIRhtEnVgunNikEMf49ep3M.mp4" label="the shop. product demo" />
+              <SoundVideo src="/media/P8BuyIRhtEnVgunNikEMf49ep3M.mp4" label="the shop. product film" style={{ aspectRatio: "1920 / 1080" }} muteRootSelector="[data-shop-section]" />
               <span className="chip">VID</span>
             </Link>
             <div className={styles.shopMeta}>
@@ -121,7 +126,7 @@ export default function Home() {
         {/* Project 2 — Siemens */}
         <section className={`${styles.row} ${styles.rowSiemens}`}>
           <Link href="/siemens" className={styles.visual}>
-            <Img file="cap/home-siemens.png" alt="Glyph, the Siemens icons AI agent, running in Copilot on an iMac" sizes="(max-width: 809px) 100vw, 491px" />
+            <Img file="cap/home-siemens.png" alt="Glyph, the Siemens icons AI agent, running in Copilot on an iMac" fill sizes="(max-width: 809px) 100vw, 491px" style={{ objectFit: "cover" }} />
           </Link>
           <div className={styles.copy}>
             <p className={styles.eyebrow}>Project 2 • Internship</p>
@@ -145,7 +150,11 @@ export default function Home() {
           <div className={styles.copy}>
             <p className={styles.eyebrow}>Project 3 • Academic Project</p>
             <h2 className={styles.title}>Prayan : Post Loss Service</h2>
-            <p className={styles.badge}>UX India 2026 Winner</p>
+            <p className={styles.badge}>
+              <span className={styles.badgeStripes} aria-hidden />
+              <span className={styles.badgeText}>UX India 2026 Winner</span>
+              <span className={styles.badgeShine} aria-hidden />
+            </p>
             <ul className={styles.tags}>
               <li>Complex System Navigation</li>
               <li>Design Beyond Screens</li>
@@ -158,7 +167,7 @@ export default function Home() {
             </Link>
           </div>
           <Link href="/prayan" className={styles.visual}>
-            <Img file="cap/home-prayan.png" alt="Prayan companion app on a phone held in hand" sizes="(max-width: 809px) 100vw, 491px" />
+            <Img file="cap/home-prayan.png" alt="Prayan companion app on a phone held in hand" fill sizes="(max-width: 809px) 100vw, 491px" style={{ objectFit: "cover" }} />
           </Link>
         </section>
 
@@ -167,8 +176,8 @@ export default function Home() {
           <article className={styles.duoItem}>
             <Link href="/godrej-crm" className={styles.phoneCard}>
               <Img file="QbRqL0E0TbLZSHusPbFy4JzjciM.svg" alt="" sizes="458px" />
-              <div className={styles.phoneScreen} style={{ left: "26.5%", top: "2.6%", width: "47%", height: "95%", borderRadius: 24 }}>
-                <Vid file="WFV7dGM4BVpf7R0rV30ElCtA.mp4" label="Godrej CRM app demo" style={{ height: "100%", objectFit: "cover" }} />
+              <div className={styles.gcClip}>
+                <Vid file="WFV7dGM4BVpf7R0rV30ElCtA.mp4" label="Godrej CRM app demo" className={styles.gcVideo} />
               </div>
               <span className="chip" style={{ right: "4%", bottom: "11%" }}>
                 VID
@@ -226,7 +235,7 @@ export default function Home() {
               </div>
               <ul className={styles.polaroids} data-count={shelf.items.length}>
                 {shelf.items.map((p) => (
-                  <li key={p.title} className={styles.polaroid} style={{ transform: `rotate(${p.rot}deg)` }}>
+                  <li key={p.title} className={styles.polaroid} style={{ "--rot": `${p.rot}deg` } as CSSProperties}>
                     <div className={styles.polaroidImg}>
                       <Img file={p.img} alt="" fill sizes="(max-width: 809px) 45vw, 260px" style={{ objectFit: "cover" }} />
                       {p.overlay && (

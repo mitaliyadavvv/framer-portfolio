@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import About from "@/components/About";
+import { ReasonThree } from "@/components/AboutExtras";
 import { Img } from "@/components/Media";
 import styles from "./formal.module.css";
 
@@ -27,8 +28,14 @@ export default function AboutFormal() {
       }
       slices={[
         { desktop: "cap/af-d1.png", mobile: "cap/af-m1.png", alt: "" },
-        { desktop: "cap/af-d2.png", mobile: "cap/af-m2.png", alt: "" },
-        { desktop: "cap/af-d3.png", alt: "" },
+        { desktop: "cap/af-d2.png", mobile: "cap/af-m2-v3.png", alt: "" },
+        {
+          node: (
+            <ReasonThree title="I’m drawn to new challenges">
+              <p>especially when it means stepping into something completely new and learning from the ground up.</p>
+            </ReasonThree>
+          ),
+        },
       ]}
       text={
         <>

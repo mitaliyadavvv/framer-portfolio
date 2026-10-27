@@ -113,6 +113,18 @@ export default function TheShop() {
         </Section>
 
         {/* Mood board collage */}
+        <div className={styles.collageWrap}>
+          {/* phone-only copy of the paragraph; the desktop one sits inside the artboard (display:none hides the other) */}
+          <div className={styles.cText}>
+            <p>
+              I wanted a clean, editorial aesthetic with colour and personality; minimal without feeling sterile, playful without
+              feeling cluttered, and fashion-forward without competing with the products.
+            </p>
+            <p>
+              I explored typography, colour, spacing, and layouts to create a consistent visual language with generous whitespace and
+              clear hierarchy, letting each brand retain its identity while making discovery feel effortless.
+            </p>
+          </div>
         <div className={styles.collage}>
           <div className={styles.c1}>
             <Img file="p3RjiGZCgS8DacbzMAowA9VTcc.png" alt="Mood board: product grid" sizes="300px" />
@@ -139,6 +151,7 @@ export default function TheShop() {
           <div className={styles.c5}>
             <Img file="0hPBp3DtKfMoRNS6ZCPlarF2s.png" alt="Mood board: discover the latest drops" sizes="430px" />
           </div>
+        </div>
         </div>
 
         <Section eyebrow="(I feel like the narrator in big boss)" title="1:30 AM" className={styles.time}>

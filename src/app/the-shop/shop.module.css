@@ -76,14 +76,15 @@
   width: 19.3%;
 }
 
+/* scales with the artboard so the arrangement holds at every width */
 .cText {
   left: 23%;
   top: 9.4%;
   width: 35.4%;
   display: grid;
-  gap: 36px;
+  gap: calc(min(100vw, 1440px) * 36 / 1440);
   font-family: var(--font-sans);
-  font-size: 17.5px;
+  font-size: calc(min(100vw, 1440px) * 17.5 / 1440);
   line-height: 1.2;
   color: #6b6b6b;
 }
@@ -197,29 +198,6 @@
   .problems {
     row-gap: 40px;
   }
-  .collage {
-    height: auto;
-    padding: 0;
-    width: calc(100% - 2 * var(--gutter));
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    align-items: start;
-  }
-  .collage > div {
-    position: static;
-    width: auto;
-    transform: none;
-  }
-  .cText {
-    grid-column: 1 / -1;
-    order: -1;
-    gap: 16px;
-    font-size: 15px;
-  }
-  .c4 {
-    display: none;
-  }
 }
 
 @media (max-width: 809px) {
@@ -270,5 +248,32 @@
   }
   .pairPanel {
     margin-top: 20px;
+  }
+}
+
+/* phones: the paragraph sits above the artboard (too small to read inside it) */
+@media (max-width: 809px) {
+  .collageWrap {
+    margin-top: 32px;
+  }
+  .collageWrap .cText {
+    position: static;
+    width: auto;
+    margin: 0 var(--gutter) 20px;
+    gap: 14px;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  .collageWrap .collage {
+    margin-top: 0;
+  }
+  .collageWrap .collage .cText {
+    display: none;
+  }
+}
+
+@media (min-width: 810px) {
+  .collageWrap > .cText {
+    display: none;
   }
 }

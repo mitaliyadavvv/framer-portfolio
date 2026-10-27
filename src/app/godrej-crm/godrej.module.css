@@ -20,7 +20,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  padding-left: 318px;
+  padding-left: 438px; /* same column as the section body text */
   margin-top: 112px;
   font-family: var(--font-sans);
   font-size: 20px;
@@ -35,12 +35,14 @@
 .hook a {
   display: inline-block;
   margin-top: 36px;
+  margin-bottom: 70px; /* room for the sticker above the divider */
 }
 
+/* overlay: positioned as in Framer, never part of the text alignment */
 .hookImg {
   position: absolute;
-  right: 80px;
-  top: 98px;
+  left: calc(438px + 443px); /* same offset from the text as in Framer */
+  top: 150px; /* below the "That's like…" line so it never covers text */
   width: 232px !important;
   transform: rotate(-10deg);
 }
@@ -78,7 +80,7 @@
 }
 
 .rationaleText {
-  width: min(1318px, calc(100% - 2 * var(--gutter)));
+  width: min(var(--container), calc(100% - 2 * var(--gutter)));
   margin-inline: auto;
   display: grid;
   grid-template-columns: 438px 1fr;
@@ -113,7 +115,7 @@
 
 .heuristicHead {
   display: grid;
-  grid-template-columns: 308px 1fr;
+  grid-template-columns: 438px 1fr;
   font-family: var(--font-sans);
 }
 
@@ -129,9 +131,8 @@
 }
 
 .deck {
-  width: 1210px;
-  max-width: none;
-  margin-top: 36px;
+  width: min(1210px, 100%);
+  margin: 36px auto 0;
 }
 
 .deckCaption {
@@ -252,6 +253,7 @@
 
 .bigStat {
   display: block;
+  color: #b00000;
   margin: 106px 0 6px;
   font-size: 52.5px;
   font-weight: 400;
@@ -318,11 +320,30 @@
   margin-bottom: 6px;
 }
 
+/* crop the recording to the phone itself, as Framer does (no tinted backdrop) */
 .solPhone {
-  width: 239px;
-  max-width: 100%;
+  width: 180px;
+  aspect-ratio: 180 / 389;
   margin: 0 auto;
   align-self: start;
+  border-radius: 14% / 6.5%;
+  overflow: hidden;
+  background: #111;
+}
+
+/* the recordings share one framing: handset spans x 9.7–85.3%, y 2.6–97.4% */
+.solPhone {
+  position: relative;
+}
+
+.solPhone video {
+  position: absolute;
+  left: -12.9%;
+  top: -2.7%;
+  width: 132.3% !important;
+  height: 105.5% !important;
+  max-width: none;
+  object-fit: fill !important;
 }
 
 .solStat {
@@ -384,7 +405,7 @@
 }
 
 .save {
-  padding-left: 315px;
+  padding-left: 438px;
   margin-top: 220px;
   font-family: var(--font-sans);
 }
@@ -420,8 +441,8 @@
 }
 
 .learnings li {
-  min-height: 278px;
-  padding: 25px 30px;
+  min-height: 220px;
+  padding: 22px 24px;
   border-radius: 5px;
   background: #fbfbfb;
 }
@@ -445,10 +466,14 @@
 
 @media (max-width: 1199px) {
   .hook {
-    padding-left: 0;
+    padding-left: 40%; /* matches the 0.8fr / 1.2fr section columns */
   }
   .hookImg {
+    left: auto;
     right: 0;
+    top: auto;
+    bottom: -40px;
+    width: 190px !important;
   }
   .rationaleText,
   .heuristicHead,
@@ -459,10 +484,20 @@
   .deck {
     width: 100%;
   }
-  .problemCards,
-  .learnings {
+  .problemCards {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+  }
+  .learnings {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .learnings li {
+    min-height: 0;
+    padding: 18px 18px 22px;
+  }
+  .learnings h3 {
+    font-size: 20px;
   }
   .tags {
     gap: 12px;
@@ -477,16 +512,27 @@
   .bigStat {
     margin-top: 32px;
   }
+  /* phone drops below the text and grows, like Framer's phone layout */
   .solution {
     margin-inline: 0;
-    grid-template-columns: 1fr 200px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .solPhone {
+    width: min(240px, 70%);
   }
   .solStat {
-    grid-column: 1;
+    padding-bottom: 0;
   }
   .save {
-    padding-left: 0;
+    padding-left: 40%;
     margin-top: 120px;
+  }
+}
+
+@media (max-width: 999px) {
+  .learnings {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -495,6 +541,7 @@
     font-size: 15px;
   }
   .hook {
+    padding-left: 0;
     margin-top: 56px;
     font-size: 15px;
   }
@@ -504,10 +551,12 @@
   }
   .hook a {
     margin-top: 16px;
+    margin-bottom: 0;
   }
   .hookImg {
     width: 120px !important;
     top: 20px;
+    bottom: auto;
   }
   .flows {
     grid-template-columns: 1fr;
@@ -635,6 +684,7 @@
     padding: 0 var(--gutter);
   }
   .save {
+    padding-left: 0;
     margin-top: 72px;
   }
   .save h2 {
