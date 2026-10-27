@@ -646,54 +646,62 @@
   }
 }
 
-/* Godrej cover: Framer's box height and centre, but shaped to the handset itself so the frame is even */
+/* Godrej cover: Framer's box height and centre. The recording's own bezel is uneven,
+   so only its screen is used and an even bezel is drawn around it. */
 .gcClip {
   left: 50% !important;
   width: auto !important;
-  aspect-ratio: 783 / 1699;
+  aspect-ratio: 781 / 1709;
   transform: translateX(-50%);
-  border-radius: 14% / 6.5%;
-  background: transparent;
+  padding: 1.6%;
+  border-radius: 13.5% / 6.3%;
+  background: #141518;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
 }
 
-/* measured from the recording: handset spans x 11.35–86.63%, y 2.57–97.4% */
+/* screen in the recording: x 139–881 of 1040, y 65–1726 of 1792 (cropped 9px in on the right,
+   where the recording has a faint edge line) */
+.gcScreen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12.3% / 5.6%;
+  overflow: hidden;
+  background: #f9f8ff;
+}
+
 .gcVideo {
-  left: -15.08% !important;
-  top: -2.71% !important;
-  width: 132.84% !important;
-  height: 105.5% !important;
+  left: -18.96% !important;
+  top: -3.91% !important;
+  width: 141.88% !important;
+  height: 107.89% !important;
   object-fit: fill !important;
   border-radius: 0 !important;
 }
 
-/* shop meta: facts on the left, buttons on the right, top-aligned with the "Built in" row */
-@media (max-width: 1199px) and (min-width: 560px) {
-  .shop {
-    padding-bottom: 48px;
+/* Framer rhythm for the image rows: the flexible gap sits above the tags/stats,
+   so the copy and button stay together (16px apart) at the image's bottom edge */
+@media (min-width: 810px) {
+  .row .copy > .tags,
+  .rowSiemens .copy > .stats {
+    margin-top: auto;
+    padding-top: 40px;
   }
-  .shopMeta {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
+  .row .copy > .desc {
+    margin-bottom: 16px;
   }
-  .shopMeta dl {
-    gap: 32px;
-  }
-  .btns {
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    gap: 12px;
-  }
-  .btns :global(.pill) {
-    min-width: 0;
+  .row .copy > :global(.pill) {
+    margin-top: 0;
   }
 }
 
-/* narrower: buttons stack on the right so the facts keep their room */
-@media (max-width: 999px) and (min-width: 560px) {
-  .btns {
-    flex-direction: column;
-    align-items: stretch;
+/* Framer leaves ~112px between the last project button and the cream band */
+.cream {
+  margin-top: 112px;
+}
+
+@media (max-width: 809px) {
+  .cream {
+    margin-top: 72px;
   }
 }

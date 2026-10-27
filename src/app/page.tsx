@@ -177,7 +177,9 @@ export default function Home() {
             <Link href="/godrej-crm" className={styles.phoneCard}>
               <Img file="QbRqL0E0TbLZSHusPbFy4JzjciM.svg" alt="" sizes="458px" />
               <div className={styles.gcClip}>
-                <Vid file="WFV7dGM4BVpf7R0rV30ElCtA.mp4" label="Godrej CRM app demo" className={styles.gcVideo} />
+                <div className={styles.gcScreen}>
+                  <Vid file="WFV7dGM4BVpf7R0rV30ElCtA.mp4" label="Godrej CRM app demo" className={styles.gcVideo} />
+                </div>
               </div>
               <span className="chip" style={{ right: "4%", bottom: "11%" }}>
                 VID
