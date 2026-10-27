@@ -39,7 +39,7 @@ const shelves: { title: string; logos: string; logosAlt: string; items: Polaroid
     logosAlt: "UX India, Institute of Design and TwinMind logos",
     items: [
       { img: "7ycNBC01sVvehYmf5PbK05rDct0.png", rot: -3, title: "Best Student Innovation Award", sub: "UX India 2026" },
-      { img: "QpmcP8A4NkUXTg33qqn0ABlyhfc.png", rot: 6, title: "Runner up Vibe Coding Hackathon", sub: "MIT ID" },
+      { img: "cap/hackathon-straight.png", rot: 6, title: "Runner up Vibe Coding Hackathon", sub: "MIT ID" },
       { img: "XQGnTAkhq4rzZEKLYsIGVvGopgQ.png", rot: -7, title: "Speaker @ UX India", sub: "Srishti University" },
       { img: "U9WU5gQ6QLpx3fg20y6WbsiBkQ.png", rot: 3, title: "Top 7 out of 400 participants", sub: "TwinMind AI Hackathon" },
     ],

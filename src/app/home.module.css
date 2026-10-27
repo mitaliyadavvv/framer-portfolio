@@ -285,19 +285,31 @@
   z-index: -1;
 }
 
+/* top edge: a cream hill rising above the band, as in Framer's curve, stretched edge to edge */
+.cream {
+  --hill: 72px;
+  padding-top: calc(67px + var(--hill));
+  background: linear-gradient(transparent var(--hill), var(--cream) var(--hill));
+}
+
 .cream::before {
-  top: -120px;
+  top: 0;
+  width: 100%;
+  height: calc(var(--hill) + 2px);
+  border-radius: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1199 75' preserveAspectRatio='none'%3E%3Cpath d='M600.5 0C361.2-.2 0 72.2 0 72.2V75h1199v-2.8S838 .2 600.5 0Z' fill='%23FDF0C3'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
 }
 
 .cream::after {
   bottom: -110px;
 }
 
+/* tucked behind the right edge of the first row of polaroids */
 .creamStarTop {
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-30%);
+  top: 360px;
+  right: max(-36px, calc(50% - 600px));
+  transform: rotate(12deg);
   z-index: -1;
 }
 
@@ -546,14 +558,18 @@
 
   .cream {
     margin-top: 80px;
-    padding: 56px 0 100px;
+    padding: calc(40px + var(--hill)) 0 100px;
   }
   .cream::before,
   .cream::after {
     height: 80px;
   }
+  .cream {
+    --hill: 36px;
+  }
   .cream::before {
-    top: -60px;
+    top: 0;
+    height: calc(var(--hill) + 2px);
   }
   .cream::after {
     bottom: -56px;
