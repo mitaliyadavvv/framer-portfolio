@@ -240,18 +240,18 @@
   align-items: flex-start;
 }
 
-.duoOffset {
-  margin-top: 68px;
-}
-
 .duoItem .title {
   margin-top: 8px;
 }
 
+/* both covers share the Ritual image's shape, so the cards match in size */
 .phoneCard {
   position: relative;
   display: block;
   width: 100%;
+  aspect-ratio: 1421 / 2048;
+  border-radius: 12px;
+  overflow: hidden;
   margin-bottom: 35px;
 }
 
@@ -549,9 +549,6 @@
     row-gap: 56px;
     margin-top: 56px;
   }
-  .duoOffset {
-    margin-top: 0;
-  }
   .phoneCard {
     margin-bottom: 20px;
   }
@@ -633,9 +630,9 @@
 .gcClip {
   position: absolute;
   left: 26.54%;
-  top: 2.59%;
+  top: 6.5%;
   width: 46.93%;
-  height: 95.01%;
+  height: 84.25%;
   border-radius: 24px;
   overflow: hidden;
   background: #000;
@@ -662,7 +659,7 @@
   }
 }
 
-/* Godrej cover: Framer's box height and centre. The recording's own bezel is uneven,
+/* Godrej cover: same height and centre as the Ritual phone. The recording's own bezel is uneven,
    so only its screen is used and an even bezel is drawn around it. */
 .gcClip {
   left: 50% !important;

@@ -175,13 +175,13 @@ export default function Home() {
         <section className={styles.duo}>
           <article className={styles.duoItem}>
             <Link href="/godrej-crm" className={styles.phoneCard}>
-              <Img file="QbRqL0E0TbLZSHusPbFy4JzjciM.svg" alt="" sizes="458px" />
+              <Img file="godrej-card-bg.svg" alt="" fill sizes="458px" style={{ objectFit: "cover" }} />
               <div className={styles.gcClip}>
                 <div className={styles.gcScreen}>
                   <Vid file="WFV7dGM4BVpf7R0rV30ElCtA.mp4" label="Godrej CRM app demo" className={styles.gcVideo} />
                 </div>
               </div>
-              <span className="chip" style={{ right: "4%", bottom: "11%" }}>
+              <span className="chip">
                 VID
               </span>
             </Link>
@@ -200,13 +200,13 @@ export default function Home() {
             </Link>
           </article>
 
-          <article className={`${styles.duoItem} ${styles.duoOffset}`}>
+          <article className={styles.duoItem}>
             <Link href="/ritual" className={styles.phoneCard}>
-              <Img file="Y9uaugoEnEfTmRnZUD8pVLZZns.png" alt="" sizes="458px" />
+              <Img file="Y9uaugoEnEfTmRnZUD8pVLZZns.png" alt="" fill sizes="458px" style={{ objectFit: "cover" }} />
               <div className={styles.phoneScreen} style={{ left: "24.3%", top: "9.9%", width: "50.7%", height: "78.2%", borderRadius: 26 }}>
                 <Vid file="b1eeBLaaJNsix27hQhLnFazp3NI.mp4" label="Ritual habit tracker demo" style={{ height: "100%", objectFit: "cover" }} />
               </div>
-              <span className="chip" style={{ right: "6%", bottom: "6%" }}>
+              <span className="chip">
                 VID
               </span>
             </Link>

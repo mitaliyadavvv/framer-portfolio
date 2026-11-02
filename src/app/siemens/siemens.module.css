@@ -200,27 +200,37 @@
 /* the sticker and label are overlays pinned to the box's top-left corner (offsets from Framer);
    they never take up layout space */
 .glyphName {
-  --sw: clamp(92px, 13.3vw, 192px);
-  --sl: max(-202px, calc((min(1075px, 100vw - 80px) - 100vw) / 2 - 20px));
+  /* normally the same width as .container; when the gutter is too narrow for the head that
+     pokes out 4.5% left of the box, the box's left edge moves in (the right edge stays put) */
+  --c: min(var(--container), 100% - 2 * var(--gutter));
+  width: min(var(--c), (50% + var(--c) / 2 - 6px) / 1.05);
+  margin-left: auto;
+  margin-right: calc((100% - var(--c)) / 2);
   position: relative;
   margin-top: 150px;
+  /* the box image fills this element, so cqw is a share of the box's width:
+     sticker and label stay pinned to its top-left corner at every size */
+  container-type: inline-size;
 }
 
 .glyphSticker {
   position: absolute !important;
-  left: var(--sl);
-  top: -108px; /* as in Framer; keeps the sticker above the box heading at narrower widths */
-  width: var(--sw) !important;
+  left: -5.63cqw;
+  top: -9.64cqw;
+  width: 13.85cqw !important;
   transform: rotate(-15deg);
   pointer-events: none;
 }
 
 .glyphLabel {
   position: absolute;
-  left: calc(var(--sl) + var(--sw) * 0.73 + max(0px, (192px - var(--sw)) * 0.2));
-  top: -48px;
+  left: 6.42cqw;
+  top: -1.59cqw;
+  transform: translateY(-50%);
+  margin: 0;
   font-family: var(--font-alt);
-  font-size: 20px;
+  font-size: 1.86cqw;
+  line-height: 1.2;
   font-weight: 700;
   color: #de57ba;
   white-space: nowrap;
@@ -228,15 +238,7 @@
 
 @media (max-width: 809px) {
   .glyphName {
-    --sl: -10px;
     margin-top: 110px;
-  }
-  .glyphSticker {
-    top: -96px;
-  }
-  .glyphLabel {
-    top: -34px;
-    font-size: 15px;
   }
 }
 

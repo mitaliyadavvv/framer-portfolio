@@ -257,7 +257,7 @@ export default function Siemens() {
             create, and explore a library of over 4,000 icons.
           </p>
         </Section>
-        <div className={`container ${styles.glyphName}`}>
+        <div className={styles.glyphName}>
           <Img
             file="cap/si-glyph-box-v2.png"
             alt="Why the name Glyph: a glyph is a symbolic figure, mark, or character that conveys information non-verbally, like a hieroglyph."
