@@ -68,7 +68,22 @@
 .photo {
   position: relative;
   height: 320px;
+  overflow: hidden;
   background: var(--teal);
+  container-type: size;
+}
+
+/* The still is 2048×1366: letterbox bar above y=100, subtitle from y=997.
+   Scale it so only the band y 100–985 can ever be on screen (whatever the
+   box's shape), centred on his face (x 717, y 610) as far as that band allows. */
+.photoImg {
+  --k: max(100cqw / 2048, 100cqh / 885);
+  position: absolute;
+  max-width: none;
+  width: calc(2048 * var(--k));
+  height: calc(1366 * var(--k));
+  left: clamp(100cqw - 2048 * var(--k), 50cqw - 717 * var(--k), 0px);
+  top: clamp(100cqh - 985 * var(--k), 50cqh - 610 * var(--k), -100 * var(--k));
 }
 
 @media (max-width: 809px) {

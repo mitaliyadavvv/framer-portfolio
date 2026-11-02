@@ -39,9 +39,10 @@ export default function Footer() {
         <Image
           src="/media/41I0i4TQvW18GvUkTluf4jvZ4.png"
           alt=""
-          fill
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "50% 42%" }}
+          width={2048}
+          height={1366}
+          sizes="max(100vw, 420px)"
+          className={styles.photoImg}
         />
       </div>
     </footer>
